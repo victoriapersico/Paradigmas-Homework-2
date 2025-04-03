@@ -1,6 +1,21 @@
 #include "Curso.h"
 #include "Estudiante.h"
 
+
+// B. En este ejercicio quiero que los Curso's compartan estudiantes porque los Estudiante's 
+// se pueden anotar a más de uno curso. Entonces uso shared_ptr<Estudiante> y hago una 
+// Shallow Copy porque copia los punteros y no duplica los objetos a los que apuntan. 
+// Nos ahorra problemas ya que si un curso borra un estudiante, no afecta a otro Curso que lo comparte. 
+// Adicionalmente, nos ahorra memoria al no duplicar los Estudiante's. 
+// Cuando hacemos una copia de un Curso, copiamos el vector<shared_ptr<Estudiante>>
+//  y se incrementan las cuentas de referencias de cada Estudiante (lo maneja shared_ptr).
+
+// C. La relación entre Curso y Estudiante es una relación del tipo “has-a”. 
+// Esto se debe a que Curso tiene una lista de Estudiante's y no es del tipo Estudiante, 
+// y Estudiante no es un tipo de Curso sino que es parte de más de un Curso. 
+// Como los Estudiante's pueden estar en más de un Curso al mismo tiempo, 
+// se usa un shared_ptr para que varios Curso's compartan al mismo Estudiante sin duplicar ningún objeto.
+
 void menu(){
 
     vector<shared_ptr<Curso>> materia = {
