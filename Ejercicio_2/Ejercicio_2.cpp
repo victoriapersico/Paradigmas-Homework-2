@@ -30,7 +30,8 @@ void menu(){
             float nota;
 
             cout<< "\nIngrese el nombre del estudiante: ";
-            cin>>nombre;
+            cin.ignore();
+            getline(cin, nombre);
             cout<< "\nIngrese el legajo del estudiante: ";
             cin>>legajo;
             cout << "\nIngrese la nota del estudiante: ";
@@ -69,7 +70,7 @@ void menu(){
             for(size_t i=0;i<materia.size();i++){
                 cout<<i+1<<". "<<materia[i]->obtener_nombre()<<endl;
             }
-            cout<<"\nIngrese el número del curso";
+            cout<<"\nIngrese el número del curso: ";
             cin>>curso_index;
 
             if(curso_index<1 || curso_index>materia.size()){
@@ -109,10 +110,10 @@ void menu(){
             for (size_t i=0; i<materia.size();i++){
                 cout<<i+1<<". "<<materia[i]->obtener_nombre()<<endl;
             }
-            cout<<"\nIngrese el número del curso:";
+            cout<<"\nIngrese el número del curso: ";
             cin>>curso_index;
             
-            if(curso_index-1||curso_index>materia.size()){
+            if(curso_index<1||curso_index>materia.size()){
                 cout<<"\nCurso no válido.\n";
                 continue;
             }
@@ -132,7 +133,7 @@ void menu(){
             }
             cout<<"\nIngrese el número del curso:";
             cin>>curso_index;
-            if(curso_index-1||curso_index>materia.size()){
+            if(curso_index<1||curso_index>materia.size()){
                 cout<<"\nCurso no válido.\n";
                 continue;
             }
@@ -148,7 +149,7 @@ void menu(){
             }
             cout<<"\nIngrese el número del curso:";
             cin>>curso_index;
-            if(curso_index-1||curso_index>materia.size()){
+            if(curso_index<1||curso_index>materia.size()){
                 cout<<"\nCurso no válido.\n";
                 continue;
             }
