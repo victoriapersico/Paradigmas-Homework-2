@@ -30,4 +30,4 @@ A continuación se describen los pasos para compilar y ejecutar los ejercicios.
 3. Ejecuta el comando: ``` g++ -std=c++17 -o dale Ejercicio_4.cpp ```
 4. Ejecuta el comando: ``` ./dale ```
 
-## Los comentarios adicionales y conclusiones del ejercicio 2 han sido agregados en el código de dicho ejercicio como comentarios.
+## Los comentarios adicionales y conclusiones del ejercicio 2 han sido agregados en el código del archivo ``` Ejercicio_2.cpp ``` como comentarios.
