@@ -20,7 +20,7 @@ A continuación se describen los pasos para compilar y ejecutar los ejercicios.
 
 1. Abrí la terminal.
 2. Abrí la carpeta "Ejercicio_3": ``` cd Ejercicio_3 ```
-3. Ejecuta el comando: ``` g++ -o dale Ejercicio_3.cpp ```
+3. Ejecuta el comando: ``` clang++ -std=c++17 -o dale Ejercicio_3.cpp ```
 4. Ejecuta el comando: ``` ./dale ```
 
 ## EJERCICIO 4:
