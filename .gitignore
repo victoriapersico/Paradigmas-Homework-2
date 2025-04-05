@@ -1,0 +1,21 @@
+# Ignorar archivos ejecutables
+*.exe
+*.out
+*.o
+*/dale
+
+# Ignorar archivos de depuración de macOS
+*.dSYM/
+*/.DS_Store
+
+# Ignorar archivos de texto
+*.txt
+*/*.txt
+
+# Mantener archivos de código fuente y configuración
+!*.cpp
+!*.h
+!*.hpp
+!*.c
+!*.md
+!*.gitignore
