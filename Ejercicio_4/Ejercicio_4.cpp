@@ -22,7 +22,11 @@ class Cuenta{
             balance+=saldo; //depositar es public para que el usuario pueda usarlo desde afuera, y modifica balance, por eso no es const.
         }
 
-    protected: //las subclases pueden acceder a valores private sin romper encapsulación
+        double get_balance_privado(){
+            return get_balance();
+        }
+
+    protected: //son los setters y getters, las subclases pueden acceder a valores private sin romper encapsulación
         double get_balance() const{ //const ya que no modifica al obj
             return balance;
         }
@@ -76,7 +80,7 @@ class CuentaCorriente : public Cuenta{
             }
             else{
                 double monto_restante = monto - get_balance();
-                if (caja_ahorro_usuario && caja_ahorro_usuario->get_balance() >= monto_restante){
+                if (caja_ahorro_usuario->get_balance_privado() >= monto_restante){ 
                     double saldo_ahorro_utilizado = caja_ahorro_usuario->retirar(monto_restante); //CajadeAhorro::retirar() se encarga de descontar el saldo tomado de ahí
                     set_balance(0);
                     return get_balance() + saldo_ahorro_utilizado; //devuelvo todo el saldo de la CuentaCorriente + el tomado de la CajaDeAhorro
@@ -94,6 +98,10 @@ class CuentaCorriente : public Cuenta{
             cout<<"\nBalance: C$"<<get_balance()<<" dólares canadienses."<<endl;
         }
 };
+
+//como declaro CuentaCorriente como friend de CajaDeAhorro puedo acceder desde CuentaCorriente a su metodo privado
+// get_balance_privado() que me permite acceder al balance de la caja de ahorro, que es un atributo privado heredado de la clase base Cuenta
+// y así no tengo que definir getters publicos. 
 
 int main() {
     auto caja_ahorro = make_shared<CajaDeAhorro>("Victoria Pérsico", 1000);
